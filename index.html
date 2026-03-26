@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Privada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: rgba(0,0,0,0.4);
+      padding: 40px;
+      border-radius: 15px;
+      max-width: 500px;
+    }
+    h1 { font-size: 2.5em; margin-bottom: 20px; }
+    input {
+      padding: 12px;
+      font-size: 1.1em;
+      width: 80%;
+      margin: 15px 0;
+      border: none;
+      border-radius: 8px;
+    }
+    button {
+      padding: 12px 30px;
+      font-size: 1.1em;
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover { background: #f57c00; }
+    #content { display: none; }
+    .error { color: #ff5252; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container" id="loginScreen">
+    <h1>¡Bienvenido!</h1>
+    <p>Ingresa la contraseña para acceder</p>
+    <input type="password" id="password" placeholder="Contraseña">
+    <br>
+    <button onclick="checkPassword()">Ingresar</button>
+    <div class="error" id="error"></div>
+  </div>
+
+  <div class="container" id="content">
+    <h1>¡Acceso concedido!</h1>
+    <p>Este es el contenido privado de tu página.</p>
+    <p>Aquí puedes poner lo que quieras: texto, imágenes, videos, enlaces, etc.</p>
+    <!-- Agrega aquí todo tu contenido real -->
+  </div>
+
+  <script>
+    function checkPassword() {
+      const entered = document.getElementById('password').value;
+      const correctPassword = "tu_contraseña_aqui";  // ← Cambia esto por la que quieras
+
+      if (entered === correctPassword) {
+        document.getElementById('loginScreen').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+      } else {
+        document.getElementById('error').innerText = "Contraseña incorrecta. Inténtalo de nuevo.";
+      }
+    }
+
+    // Opcional: permitir presionar Enter
+    document.getElementById('password').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') checkPassword();
+    });
+  </script>
+</body>
+</html>
