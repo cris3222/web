@@ -1,0 +1,11 @@
+{
+  "name": "pagina-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "npm --prefix ./mi-chat-privado run dev",
+    "build": "npm --prefix ./mi-chat-privado run build",
+    "preview": "npm --prefix ./mi-chat-privado run preview",
+    "install:app": "npm --prefix ./mi-chat-privado install"
+  }
+}
